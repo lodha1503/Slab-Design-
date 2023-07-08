@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Input from './Input';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import OneWaySlab from './pages/OneWaySlab';
+import TwoWaySlab from './pages/TwoWaySlab';
+import { useState } from 'react';
+
 
 function App() {
+  const [length, setLength] = useState(0.0);
+  const [breadth, setBreadth] = useState(0.0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+      <Route exact path="/" element={<Input length={length} breadth={breadth} setLength={setLength} setBreadth={setBreadth} />} />
+      <Route exact path="/onewayslab" element={<OneWaySlab length={length} breadth={breadth} />} />
+      <Route exact path="/twowayslab" element={<TwoWaySlab length={length} breadth={breadth} />} />
+      </Routes>
+    </Router>
+    
   );
 }
 
