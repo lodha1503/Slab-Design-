@@ -49,7 +49,7 @@ const TwoWaySlab = (props) => {
     const Total_Load = Live_Load + Dead_Load + Self_weight + Floor_Finish;
     const Factored_Load = 1.5*Total_Load;
 
-    const ratio = Math.float(Long_Span) / Math.float(Short_Span);
+    const ratio = Long_Span/Short_Span;
     const final_ratio = Math.round(ratio, 2);
 
 
